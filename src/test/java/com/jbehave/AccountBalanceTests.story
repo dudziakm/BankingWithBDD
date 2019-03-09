@@ -31,7 +31,7 @@ And Account balance is <balanceAmount> PLN
 
 
 
-Scenario: I should be able to pay less or as much as I have on my account
+Scenario: I should be able to withdraw money and display the correct account balance after payment
 
 Given Account balance is <initialBalance> PLN
 When I withdraw <withdrawAmount> PLN
@@ -42,7 +42,10 @@ And Account balance is <balanceAmount> PLN
     Examples:
         initialBalance     | withdrawAmount | balanceAmount       |
         200                | 500            | 200                 |
+        200                | 201            | 200                 |
+        200                | -58            | 200                 |
         200                | 0              | 200                 |
+        200                | 0,12           | 199,88              |
         200                | 50             | 150                 |
         200                | 100            | 100                 |
         200                | 150            | 50                  |
